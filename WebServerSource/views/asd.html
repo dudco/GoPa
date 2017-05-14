@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Web</title>
+	 <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+	 <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.1/socket.io.js"></script>
+</head>
+<body>
+
+<script type="text/javascript">
+		var socket = io.connect('http://soylatte.kr:3000');
+
+		var a ={ 
+			userX:1,
+			userY:2,
+			driverX:3,
+			driverY:4,
+			dirverId:"dasfdfs",
+			time:1000
+		}
+		console.log(a);
+		
+        socket.emit('location',a);
+    
+
+        socket.on('return',function(data){
+            
+           	console.log(data["userX"])
+        });
+
+</script>
+</body>
+</html>
